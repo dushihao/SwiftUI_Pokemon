@@ -34,12 +34,12 @@ struct ContentView: View {
                 .minimumScaleFactor(0.5)
                 .padding(.trailing, 24)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
-                // 联系1: 使用 @State 控制 Alert 弹窗
+                // 练习1: 使用 @State 控制 Alert 弹窗
                 .alert(isPresented: $showResult) {
                     Alert(title: Text("hello"), message: Text(model.historyDetail + "\n" + model.brain.output), dismissButton: .default(Text("OK")))
                 }.onTapGesture {
                     self.showResult = true
-                    print("What the fuck! you touched me!")
+                    print("WTF! you touched me!")
                 }
             CalculatorButttonPad()
                 .padding(.bottom)

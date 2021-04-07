@@ -12,7 +12,6 @@ enum CalculatorBrain {
     case left(String)
     case leftOp(left: String, op: CalculatorButtonItem.Op)
     case leftOpRight(left: String, op: CalculatorButtonItem.Op, right: String)
-//    case leftOpRightEqual(left:String, op: CalculatorButtonItem.Op, right: String)
     /**
      练习3: “修正计算器模型中的 bug”
      
