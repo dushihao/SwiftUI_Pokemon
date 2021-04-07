@@ -7,17 +7,17 @@
 同 `editingHistory` 一样，添加额外的属性，控制 Alert 弹窗 , 当用户点击Alert弹窗关闭时，SwiftUI会通过`self.showResult` 这个 `binding` 把值设置为 false。
 
 ```swift
-            Text(model.brain.output)
-                .font(.system(size:76))
-                .minimumScaleFactor(0.5)
-                .padding(.trailing, 24)
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
-                .alert(isPresented: $showResult) {
-                    Alert(title: Text("hello"), message: Text(model.historyDetail + "\n" + model.brain.output), dismissButton: .default(Text("OK")))
-                }.onTapGesture {
-                    self.showResult = true
-                    print("WTF! you touched me!")
-                }
+Text(model.brain.output)
+     .font(.system(size:76))
+     .minimumScaleFactor(0.5)
+     .padding(.trailing, 24)
+     .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+     .alert(isPresented: $showResult) {
+             Alert(title: Text("hello"), message: Text(model.historyDetail + "\n" + model.brain.output), dismissButton: .default(Text("OK")))
+     }.onTapGesture {
+             self.showResult = true
+             print("WTF! you touched me!")
+     }
 ```
 
    
