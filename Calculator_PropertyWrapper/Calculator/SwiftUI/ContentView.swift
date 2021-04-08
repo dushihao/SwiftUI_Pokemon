@@ -122,7 +122,7 @@ struct HistoryView: View {
     var body: some View {
         VStack {
             Button("关闭"){
-                self.editingHistory = false
+                self.editingHistory.toggle()
                 print("close!")
             }.padding(10)
             

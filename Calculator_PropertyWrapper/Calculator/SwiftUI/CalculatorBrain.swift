@@ -14,10 +14,6 @@ enum CalculatorBrain {
     case leftOpRight(left: String, op: CalculatorButtonItem.Op, right: String)
     /**
      练习3: “修正计算器模型中的 bug”
-     
-     “现在计算器的 CalculatorBrain 中还存在一个 bug，那就是当我们输入算式和等号得到计算结果后，如果我们继续输入下一个数字，会发生错误。举个例子，我们顺次输入了 “1 + 2 =” 之后，界面显示 “3”。此时如果我们想要计算 “4 + 5” 的话，正确的计算器中按下 “4” 后界面应该显示 “4”，并等待继续输入。但是现在我们的计算器中将会显示为 “3.04”，这显然是不对的。请您尝试阅读并理解 CalculatorBrain 的代码，定位这个 bug 产生的原因，并修复它。”
-
-     摘录来自: 王 巍. “SwiftUI 和 Combine 编程。” Apple Books.
      */
     case equal(String) // 添加了一个结果值状态，简单测试了一下应该解决了
     case error
