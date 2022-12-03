@@ -132,11 +132,11 @@ struct HistoryView: View {
                 HStack {
                     Text("履历").font(.headline)
                     Text("\(model.historyDetail)").lineLimit(nil)
-                }
+                }.padding()
                 HStack {
                     Text("显示").font(.headline)
                     Text("\(model.brain.output)").lineLimit(nil)
-                }
+                }.padding()
                 Slider(
                     value: $model.slidingIndex,
                     in: 0...Float(model.totalCount),
