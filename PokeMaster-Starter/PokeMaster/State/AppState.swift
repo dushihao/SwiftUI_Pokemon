@@ -78,7 +78,7 @@ extension AppState {
         var checker = AccountChecker()
         
         var isEmailValid: Bool = false
-        
+        var isRegisterValid: Bool = false
         @FileStorage(directory: .documentDirectory, fileName: "user.json")
         var loginUser: User?
         var loginRequesting = false

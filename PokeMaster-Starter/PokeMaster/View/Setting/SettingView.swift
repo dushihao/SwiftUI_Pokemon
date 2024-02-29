@@ -76,7 +76,7 @@ struct SettingView: View {
                             .login(email: self.settings.checker.email,
                                    password: self.settings.checker.password)
                         )
-                    }
+                    }.disabled(!settings.isRegisterValid)
                 }
             } else {
                 Text(settings.loginUser!.email)

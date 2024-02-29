@@ -22,6 +22,10 @@ class Store: ObservableObject {
             isValid in
             self.dispatch(.emailValid(valid: isValid))
         }.store(in: &disposeBag)
+        
+        Publishers.CombineLatest(appState.settings.checker.isEmailValid, appState.settings.checker.isPasswordValid).sink { emailValid, isPasswordValid in
+            self.dispatch(.registerValid(valid: emailValid && isPasswordValid))
+        }.store(in: &disposeBag)
     }
     
     static func reduce(state: AppState, action: AppAction) -> (AppState, AppCommand?) {
@@ -51,6 +55,8 @@ class Store: ObservableObject {
             appState.settings.loginUser = nil
         case .emailValid(valid: let valid):
             appState.settings.isEmailValid = valid
+        case .registerValid(valid: let valid):
+            appState.settings.isRegisterValid = valid
         case .loadPokemons:
             if appState.pokemonList.loadingPokemons {
                 break
