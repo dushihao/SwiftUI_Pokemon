@@ -60,6 +60,19 @@ extension AppState {
                     .map { $0 && ($1 || $2) }
                     .eraseToAnyPublisher()
             }
+            
+            // 实现一个新的 Publisher，检查 password 和 verifyPassword 不为空，而且两者的的值相等
+            var isPasswordValid: AnyPublisher<Bool, Never> {
+                let passwordValid = $password.map { !$0.isEmpty }
+                let verifyPassword = $verifyPassword.map { !$0.isEmpty }
+                return Publishers.CombineLatest(passwordValid, verifyPassword)
+                    .map { $0 && $1 }
+                    .map {
+                        guard $0 else { return false }
+                        return self.password == self.verifyPassword
+                    }
+                    .eraseToAnyPublisher()
+            }
         }
         
         var checker = AccountChecker()
